@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conectando Futuros - Cursos</title>
+    <link rel="icon" href="./img/ChatGPT-Image-5-de-out.-de-2025_-14_01_47 1.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#0D1117', /* Fundo principal escuro */
+                        'navy-dark': '#101620', /* Fundo do header e footer */
+                        'primary-blue': '#007bff', /* Azul de destaque (links, botões) */
+                        'text-light': '#C9D1D9', /* Texto cinza claro */
+                        'bg-card': '#161B22', /* Fundo do cartão ligeiramente mais claro */
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Oculta o checkbox */
+        #menu-toggle {
+            display: none;
+        }
+
+        /* Animação do ícone hamburger */
+        #menu-icon-bars span {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        #menu-toggle:checked + .menu-icon-label #menu-icon-bars #line1 {
+            transform: translateY(8px) rotate(45deg);
+        }
+        #menu-toggle:checked + .menu-icon-label #menu-icon-bars #line2 {
+            opacity: 0;
+        }
+        #menu-toggle:checked + .menu-icon-label #menu-icon-bars #line3 {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Efeito de hover nas imagens para simular a leve sombra/foco da imagem */
+        .course-card:hover .card-image-wrapper img {
+            transform: scale(1.03);
+            filter: brightness(1.1);
+        }
+
+        /* Imagens dos cards para manter proporção e cobrir o espaço */
+        .card-image-wrapper {
+            width: 100%;
+            height: 200px; /* Altura fixa para as imagens */
+            overflow: hidden;
+            border-radius: 8px 8px 0 0;
+        }
+        .card-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        
+        /* Ajuste do Footer para centralização do texto (fidelidade ao modelo 1) */
+        .footer-text-column {
+             max-width: 400px;
+             text-align: center;
+        }
+
+    </style>
+</head>
+
+<body class="bg-dark-bg text-white font-sans pt-20 lg:pt-24">
+
+    <header class="fixed top-0 w-full bg-navy-dark border-b border-gray-800 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            
+            <div class="text-xl font-bold">
+                 <img src="./img/ChatGPT-Image-5-de-out.-de-2025_-14_01_47 1.png" alt="" class="max-w-full h-auto w-24 sm:w-28 lg:w-32">
+
+            </div>
+
+            <input type="checkbox" id="menu-toggle" class="hidden">
+            
+            <label for="menu-toggle" class="menu-icon-label lg:hidden cursor-pointer p-2 flex justify-end items-center">
+                <div id="menu-icon-bars" class="w-6 h-6 flex flex-col justify-around">
+                    <span id="line1" class="block h-0.5 w-full bg-white"></span>
+                    <span id="line2" class="block h-0.5 w-full bg-white"></span>
+                    <span id="line3" class="block h-0.5 w-full bg-white"></span>
+                </div>
+            </label>
+            
+            <nav id="navbar-menu" class="hidden lg:flex space-x-8 items-center text-lg font-medium">
+                <a href="index.html" class="text-white hover:text-primary-blue transition-colors duration-300">Início</a>
+                <a href="sobre.html" class="text-white hover:text-primary-blue transition-colors duration-300">Sobre</a>
+                <a href="cursos.html" class="text-white hover:text-primary-blue transition-colors duration-300">Cursos</a>
+                <button class="text-white hover:text-primary-blue transition-colors duration-300 p-1">
+                    <i class="fas fa-search h-5 w-5"></i>
+                </button>
+            </nav>
+        </div>
+        
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-navy-dark pb-4 hidden lg:hidden">
+            <a href="index.html" class="block px-4 py-2 hover:bg-gray-800 transition-colors">Início</a>
+            <a href="sobre.html" class="block px-4 py-2 hover:bg-gray-800 transition-colors">Sobre</a>
+            <a href="cursos.html" class="block px-4 py-2 hover:bg-gray-800 transition-colors">Cursos</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="py-10 lg:py-16 px-4 sm:px-6 lg:px-8 bg-dark-bg">
+            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between">
+                
+                <div class="lg:w-1/2 flex justify-center lg:justify-start mb-10 lg:mb-0">
+                    <img src="./img/vecteezy_interactive-technology-environment-illustration-clip-art_48970790 1.png" alt="Ilustração de computador e tecnologia"
+                         class="max-w-full h-auto w-full max-w-xs lg:max-w-md">
+                </div>
+
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-snug tracking-tight">
+                        Assista as aulas já <br> 
+                        <span class="text-primary-blue">Não perca tempo!</span>
+                    </h1>
+                </div>
+            </div>
+        </section>
+
+        <section id="cursos" class="py-16 px-4 sm:px-6 lg:px-8 bg-dark-bg">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl font-bold mb-2">Cursos disponíveis</h2>
+                <p class="text-text-light text-lg mb-10">Explore os nossos cursos e assista agora!</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                    
+                    <div class="course-card bg-navy-dark rounded-lg overflow-hidden shadow-xl">
+                        <div class="card-image-wrapper">
+                            <img src="./img/programming-background-with-person-working-with-codes-computer-1200x800 2.png" alt="Código em um monitor de computador">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-3">Programação para todos.</h3>
+                            <a href="cursoprogram.html" class="inline-block w-full py-2 text-center font-medium rounded-md text-white bg-primary-blue hover:bg-blue-600 transition-colors">
+                                Assistir
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="course-card bg-navy-dark rounded-lg overflow-hidden shadow-xl">
+                        <div class="card-image-wrapper">
+                            <img src="./img/inteligencia-artificial-ia 1.png" alt="Mão tocando uma rede neural digital">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-3">Uso correto da Inteligência Artificial</h3>
+                            <a href="cursoia.html" class="inline-block w-full py-2 text-center font-medium rounded-md text-white bg-primary-blue hover:bg-blue-600 transition-colors">
+                                Assistir
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="course-card bg-navy-dark rounded-lg overflow-hidden shadow-xl">
+                        <div class="card-image-wrapper">
+                            <img src="./img/desktop-wallpaper-motherboard-ic-integrated-circuit 1.png" alt="Placa-mãe de computador">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-3">Hardware e Arduino</h3>
+                            <a href="cursohard.html" class="inline-block w-full py-2 text-center font-medium rounded-md text-white bg-primary-blue hover:bg-blue-600 transition-colors">
+                                Assistir
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="course-card bg-navy-dark rounded-lg overflow-hidden shadow-xl">
+                        <div class="card-image-wrapper">
+                            <img src="./img/curso4.png" alt="Pessoa trabalhando em design de interface">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-3">UX/UI Design</h3>
+                            <a href="cursoUIUX.html" class="inline-block w-full py-2 text-center font-medium rounded-md text-white bg-primary-blue hover:bg-blue-600 transition-colors">
+                                Assistir
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="course-card bg-navy-dark rounded-lg overflow-hidden shadow-xl">
+                        <div class="card-image-wrapper">
+                            <img src="./img/programa-de-edicao-de-video-em-tela-de-computador 1.png" alt="Linha do tempo de edição de vídeo em software">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-3">Edição de vídeos</h3>
+                            <a href="cursoedicao.html" class="inline-block w-full py-2 text-center font-medium rounded-md text-white bg-primary-blue hover:bg-blue-600 transition-colors">
+                                Assistir
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="course-card bg-navy-dark rounded-lg overflow-hidden shadow-xl">
+                        <div class="card-image-wrapper">
+                            <img src="./img/curso2.png" alt="Logo do Canva">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-3">Canva</h3>
+                            <a href="cursocanva.html" class="inline-block w-full py-2 text-center font-medium rounded-md text-white bg-primary-blue hover:bg-blue-600 transition-colors">
+                                Assistir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-navy-dark pt-12 pb-8 px-4 sm:px-6 lg:px-8 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 pb-8">
+            <div class="md:text-left text-center">
+                <h4 class="text-lg font-bold mb-4">Navegação</h4>
+                <ul class="space-y-2">
+                    <li><a href="#inicio" class="text-gray-400 hover:text-white">Início</a></li>
+                    <li><a href="#sobre" class="text-gray-400 hover:text-white">Sobre</a></li>
+                    <li><a href="#cursos" class="text-gray-400 hover:text-white">Cursos</a></li>
+                </ul>
+            </div>
+            
+            <div class="text-center text-gray-400 flex flex-col justify-center footer-text-column mx-auto">
+                <p class="text-sm">Todo longo jornada, não importa o quão boa ou é planejada, inicia com um primeiro passo. Aprenda sobre a jornada de todos que fizeram essa caminhada por lazer diversão até apreensão.</p>
+            </div>
+
+            <div class="md:text-left text-center">
+                <h4 class="text-lg font-bold mb-4">Contato</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-center md:justify-start justify-center text-gray-400">
+                        <i class="fas fa-envelope text-primary-blue mr-2"></i> <a href="mailto:conectandofuturo@gmail.com" class="hover:text-white">conectandofuturo@gmail.com</a>
+                    </li>
+                    <li class="flex items-center md:justify-start justify-center text-gray-400">
+                        <i class="fas fa-globe text-primary-blue mr-2"></i> <a href="#" class="hover:text-white">@programasj</a>
+                    </li>
+                    <li class="flex items-center md:justify-start justify-center text-gray-400">
+                        <i class="fab fa-youtube text-primary-blue mr-2"></i> <a href="#" class="hover:text-white">conectando_futuros</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-8 pt-4 border-t border-gray-800 text-center">
+            <p class="text-xs text-gray-500">© 2025 Conectando Futuros - Desenvolvido pelos alunos do curso de Desenvolvimento de Sistemas</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Função para alternar a visibilidade do menu
+            menuToggle.addEventListener('change', () => {
+                if (menuToggle.checked) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex', 'flex-col');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex', 'flex-col');
+                }
+            });
+
+            // Fechar menu ao clicar em um link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 1024) { 
+                        menuToggle.checked = false;
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.classList.remove('flex', 'flex-col');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conectando Futuros</title>
+    <link rel="icon" href="./img/ChatGPT-Image-5-de-out.-de-2025_-14_01_47 1.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#0D1117', /* Cor de fundo principal da imagem */
+                        'navy-dark': '#101620', /* Cor um pouco mais escura para seções ou rodapé */
+                        'primary-blue': '#007bff', /* Azul de destaque (simulando o ícone) */
+                        'text-light': '#C9D1D9', /* Texto cinza claro */
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0d1117; /* Fundo escuro */
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Container de Conteúdo (para centralizar e limitar a largura) */
+.content-container {
+    max-width: 1200px; /* Largura aproximada do conteúdo na imagem */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Cabeçalho (Navbar) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #0d1117; 
+    position: fixed; /* Simula o cabeçalho fixo */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.2em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #007bff; /* Cor azul claro para o logo, simulando o tom */
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 1em;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+.search-icon i {
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+/* --- Seção Hero (Imagem de Fundo) --- */
+.hero-section {
+    position: relative;
+    height: 40vh; /* Altura reduzida para evitar sobreposição */
+    min-height: 250px;
+    background: url('caminho/para/sua/imagem.jpg') center center/contain no-repeat;
+    /* Substitua 'caminho/para/sua/imagem.jpg' pela URL real da imagem. */
+    /* Para o propósito deste código, usaremos uma cor de fundo ou um placeholder */
+    background-image: url('data:image/jpeg;base64,...'); /* Usaria a URL da imagem real */
+    background-color: #1a1e22; /* Placeholder */
+    display: flex;
+    align-items: flex-end; /* Conteúdo na parte inferior */
+}
+
+/* Overlay escuro para dar contraste ao texto (simula a sobreposição escura) */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay preto semi-transparente */
+    z-index: 1;
+}
+
+
+/* --- Seção Sobre o Projeto --- */
+.about-section {
+    background-color: #0d1117;
+    padding: 60px 0;
+}
+
+.about-section .content-container {
+    padding-top: 20px;
+}
+
+.section-title {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+    position: relative;
+    /* Alinhamento à esquerda conforme a imagem */
+}
+
+.description-text {
+    max-width: 950px; /* Limita a largura do parágrafo */
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #c9d1d9;
+    text-align: justify; /* Justificado como na imagem */
+}
+
+.description-text strong {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* --- Seção de Cards --- */
+.cards-section {
+    padding: 60px 0 80px 0;
+    background-color: #0d1117;
+}
+
+.sub-title {
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.cards-grid {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.card {
+    flex: 1;
+    max-width: calc(33.333% - 27px); /* 3 colunas com espaço */
+    padding: 0;
+    text-align: left; /* Alinhamento dos textos dos cards */
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: #007bff;
+}
+
+.star-icon {
+    /* O ícone da estrela na imagem é preenchido/sólido */
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.card h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 0.9em;
+    font-weight: 300;
+    color: #c9d1d9;
+    line-height: 1.5;
+}
+
+/* --- Rodapé (Footer) --- */
+footer {
+    background-color: #000000;
+    padding: 40px 0 0 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 30px 40px;
+}
+
+.footer-column {
+    flex: 1;
+    padding: 0 20px;
+    min-width: 200px; /* Para garantir que as colunas não fiquem muito apertadas */
+}
+
+.footer-column h4 {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column a, .footer-column p, .footer-column ul li {
+    color: #c9d1d9;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+.footer-column ul li i {
+    margin-right: 10px;
+    color: #007bff; /* Ícones em cor de destaque */
+}
+
+.text-center {
+    text-align: center;
+    max-width: 400px; /* Simula o alinhamento da coluna central */
+    flex: 1.5; /* Dá mais espaço à coluna de texto central */
+    align-self: center; /* Centraliza verticalmente o texto */
+}
+
+.text-center p {
+    line-height: 1.7;
+}
+
+.copyright {
+    background-color: #000000; 
+    padding: 20px 0;
+    border-top: 1px solid #1a1e22;
+    text-align: center;
+}
+
+.copyright p {
+    font-size: 0.8em;
+    color: #c9d1d9;
+    font-weight: 300;
+}
+
+/* --- Responsividade (Ajustes para telas menores) --- */
+@media (max-width: 1024px) {
+    .nav-links a {
+        margin-left: 20px;
+    }
+
+    .cards-grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: none; /* Poderia ser um menu hamburger em um projeto real */
+    }
+
+    .logo {
+        font-size: 1.1em;
+    }
+    
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    .cards-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        padding: 0 20px 30px 20px;
+    }
+
+    .footer-column {
+        padding: 20px 0;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .text-center {
+        order: -1; /* Move o texto grande para cima, se for o caso */
+        margin-bottom: 20px;
+    }
+
+    .footer-column ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+    </style>
+</head>
+<body class="bg-dark-bg text-white font-sans pt-16 lg:pt-20"> 
+    
+    <header class="fixed top-0 w-full bg-navy-dark border-b border-gray-800 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            
+            <div class="text-xl font-bold text-primary-blue">
+                                <img src="./img/ChatGPT-Image-5-de-out.-de-2025_-14_01_47 1.png" alt="" class="max-w-full h-auto w-24 sm:w-28 lg:w-32">
+
+            </div>
+
+            <input type="checkbox" id="menu-toggle" class="hidden">
+            <label for="menu-toggle" id="menu-icon" class="lg:hidden cursor-pointer p-2">
+                <div class="w-6 h-6 flex flex-col justify-around transition duration-300 ease-in-out group">
+                    <span class="block h-0.5 w-full bg-white transition duration-300 ease-in-out" id="line1"></span>
+                    <span class="block h-0.5 w-full bg-white transition duration-300 ease-in-out" id="line2"></span>
+                    <span class="block h-0.5 w-full bg-white transition duration-300 ease-in-out" id="line3"></span>
+                </div>
+            </label>
+            
+            <nav id="navbar-menu" class="hidden lg:flex space-x-8 items-center text-lg font-medium">
+                <a href="index.html" class="text-white hover:text-primary-blue transition-colors duration-300">Início</a>
+                <a href="sobre.html" class="text-white hover:text-primary-blue transition-colors duration-300">Sobre</a>
+                <a href="cursos.html" class="text-white hover:text-primary-blue transition-colors duration-300">Cursos</a>
+                <button class="text-white hover:text-primary-blue transition-colors duration-300 p-1"><i class="fas fa-search h-5 w-5"></i></button>
+            </nav>
+        </div>
+        
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-navy-dark border-t border-gray-800 hidden lg:hidden">
+            <a href="index.html" class="block px-4 py-3 text-base font-medium hover:bg-gray-800 transition-colors duration-300">Início</a>
+            <a href="sobre.html" class="block px-4 py-3 text-base font-medium hover:bg-gray-800 transition-colors duration-300">Sobre</a>
+            <a href="cursos.html" class="block px-4 py-3 text-base font-medium hover:bg-gray-800 transition-colors duration-300">Cursos</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative h-[60vh] min-h-[400px] bg-contain bg-center" style="background-image: url('./img/IMG-20250915-WA0002 (1) 1.png');">
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div class="relative max-w-7xl mx-auto h-full flex items-end px-4 sm:px-6 lg:px-8 pb-10 z-10">
+                </div>
+        </section>
+
+        <section id="sobre" class="py-16 sm:py-20 px-4">
+            <div class="max-w-7x1  mx-auto">
+                <h1 class="text-3xl sm:text-4xl lg:text-[2.2em] font-bold mb-8 tracking-wide ml-8">SOBRE O PROJETO</h1>
+                <p class="max-w-4xl text-lg lg:text-xl font-light leading-relaxed text-text-light text-left ml-8">
+                    Este projeto busca criar e consolidar um ambiente digital colaborativo, administrado pelos próprios alunos,
+                    dedicado à produção e ao compartilhamento de conteúdos educativos na área de Tecnologia da Informação.
+                    Por meio da criação de um site e de um canal no YouTube, pretende-se fortalecer a compreensão
+                    dos assuntos trabalhados no curso, incentivar o protagonismo estudantil e a autonomia dos estudantes
+                    no processo de aprendizagem, além de oferecer suporte prático que os prepare para enfrentar os desafios
+                    do mercado de trabalho. Assim, busca-se também ampliar o alcance do conhecimento para a comunidade
+                    em geral, democratizando o acesso às informações técnicas e promovendo a inclusão digital.
+                </p>
+            </div>
+        </section>
+
+        <section id="cards" class="py-16 sm:py-20 bg-dark-bg px-4">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-2xl sm:text-3xl font-semibold mb-12">Invista na sua aprendizagem!</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
+                    
+                    <div class="flex flex-col items-start text-left">
+                        <div class="w-16 h-16 border-2 border-primary-blue rounded-full flex justify-center items-center text-primary-blue text-2xl mb-4">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Explorar novas habilidades.</h3>
+                        <p class="text-text-light text-sm font-light">
+                            Material exclusivo e para alunos, com conteúdo didático e muito mais.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col items-start text-left">
+                        <div class="w-16 h-16 border-2 border-primary-blue rounded-full flex justify-center items-center text-primary-blue text-2xl mb-4">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Adquira qualificações escolares.</h3>
+                        <p class="text-text-light text-sm font-light">
+                            Aprenda conceitos e fundamentos de TI, aprofundados com base nos conteúdos e matérias do curso de Desenvolvimento de Sistemas.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col items-start text-left">
+                        <div class="w-16 h-16 bg-primary-blue rounded-full flex justify-center items-center text-white text-2xl mb-4 shadow-lg">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Aprenda com os melhores.</h3>
+                        <p class="text-text-light text-sm font-light">
+                            Invista no seu futuro profissional com cursos ministrados pelos melhores alunos.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black pt-10 pb-6 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-4 lg:gap-16 items-start">
+                
+                <div class="md:text-left text-center">
+                    <h4 class="text-lg font-semibold mb-4 text-white">Navegação</h4>
+                    <ul class="space-y-2 text-text-light text-sm font-light md:block flex flex-col items-center">
+                        <li><a href="#inicio" class="hover:text-primary-blue transition-colors">Início</a></li>
+                        <li><a href="#sobre" class="hover:text-primary-blue transition-colors">Sobre</a></li>
+                        <li><a href="#cursos" class="hover:text-primary-blue transition-colors">Cursos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="text-center md:col-span-1 md:order-none order-first">
+                    <p class="text-text-light text-sm italic font-light leading-relaxed max-w-sm mx-auto">
+                        Tudo nesse mundo, não importa o quão feio ou o quão bonito seja, terá um tempo de o abraçaremos e a todos que fizeram essa caminhada ser tão divertida. Até a próxima!
+                    </p>
+                </div>
+                
+                <div class="md:text-left text-center">
+                    <h4 class="text-lg font-semibold mb-4 text-white">Contato</h4>
+                    <ul class="space-y-2 text-text-light text-sm font-light md:block flex flex-col items-center">
+                        <li class="flex items-center md:justify-start justify-center">
+                            <i class="fas fa-globe text-primary-blue mr-2"></i> @sitedoinsta
+                        </li>
+                        <li class="flex items-center md:justify-start justify-center">
+                            <i class="fas fa-envelope text-primary-blue mr-2"></i> conectando.futuros@gmail.com
+                        </li>
+                        <li class="flex items-center md:justify-start justify-center">
+                            <i class="fab fa-youtube text-primary-blue mr-2"></i> Conectando_futuros
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-4 border-t border-gray-800 text-center">
+                <p class="text-xs text-gray-500">© 2025 Conectando Futuros - Desenvolvido pelos alunos do curso de Desenvolvimento de Sistemas</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon'); // O label que contém o ícone
+            
+            // Adiciona ou remove as classes do Tailwind para mostrar/esconder o menu
+            menuToggle.addEventListener('change', () => {
+                if (menuToggle.checked) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex', 'flex-col');
+                    // Efeito de X no ícone (apenas visual)
+                    document.getElementById('line1').classList.add('rotate-45', 'translate-y-2');
+                    document.getElementById('line2').classList.add('opacity-0');
+                    document.getElementById('line3').classList.add('-rotate-45', '-translate-y-2');
+                } else {
+                    mobileMenu.classList.remove('flex', 'flex-col');
+                    mobileMenu.classList.add('hidden');
+                    // Efeito de volta às barras
+                    document.getElementById('line1').classList.remove('rotate-45', 'translate-y-2');
+                    document.getElementById('line2').classList.remove('opacity-0');
+                    document.getElementById('line3').classList.remove('-rotate-45', '-translate-y-2');
+                }
+            });
+
+            // Fecha o menu ao clicar em um link (para melhor UX em mobile)
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (menuToggle.checked) {
+                        menuToggle.checked = false;
+                        // Força a execução do código de "else" do listener principal
+                        mobileMenu.classList.remove('flex', 'flex-col');
+                        mobileMenu.classList.add('hidden');
+                        document.getElementById('line1').classList.remove('rotate-45', 'translate-y-2');
+                        document.getElementById('line2').classList.remove('opacity-0');
+                        document.getElementById('line3').classList.remove('-rotate-45', '-translate-y-2');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
