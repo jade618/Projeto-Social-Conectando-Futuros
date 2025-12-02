@@ -67,6 +67,9 @@
         #menu-toggle:checked + .menu-icon-label #menu-icon-bars #line3 {
             transform: translateY(-8px) rotate(-45deg);
         }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 
@@ -90,7 +93,7 @@
                     <span id="line3" class="block h-0.5 w-full bg-white"></span>
                 </div>
             </label>
-            
+
             <nav id="navbar-menu" class="hidden lg:flex space-x-8 items-center text-lg font-medium">
                 <a href="#inicio" class="interactive-button text-white hover:text-primary-blue">Início</a>
                 <a href="sobre.html" class="interactive-button text-white hover:text-primary-blue">Sobre</a>
@@ -98,6 +101,9 @@
                 <button class="interactive-button text-white hover:text-primary-blue transition-colors duration-300 active:text-primary-blue p-1">
                     <i class="fas fa-search h-5 w-5"></i>
                 </button>
+                <input id="search-input" type="text" placeholder="Pesquisar..."
+                    class="hidden bg-gray-900 border border-gray-700 text-white px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-primary-blue" />
+
             </nav>
         </div>
         
@@ -265,7 +271,39 @@
                 });
             });
         });
-    </script>
+        document.addEventListener('DOMContentLoaded', () => {
+                const searchButton = document.querySelector('#navbar-menu button');
+                const navLinks = document.querySelectorAll('#navbar-menu a');
+                const searchInput = document.getElementById('search-input');
 
+                let searchOpen = false;
+
+                searchButton.addEventListener('click', () => {
+                    searchOpen = !searchOpen;
+
+                    if (searchOpen) {
+                        // Esconde tudo
+                        navLinks.forEach(link => link.classList.add('hidden'));
+                        // Mostra barra de pesquisa
+                        searchInput.classList.remove('hidden');
+                        // Focar automático
+                        searchInput.focus();
+                    } else {
+                        // Volta ao normal
+                        navLinks.forEach(link => link.classList.remove('hidden'));
+                        searchInput.classList.add('hidden');
+                        searchInput.value = "";
+                    }
+                });
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && searchOpen) {
+                        searchOpen = false;
+                        navLinks.forEach(link => link.classList.remove('hidden'));
+                        searchInput.classList.add('hidden');
+                        searchInput.value = "";
+                    }
+                });
+            });
+    </script>
 </body>
 </html>
