@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conectando Futuros</title>
     <link rel="icon" href="./img/ChatGPT-Image-5-de-out.-de-2025_-14_01_47 1.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -26,66 +28,22 @@
             }
         }
     </script>
-
-    <style>
-        /* Estilos personalizados mantidos do original, mas alguns não serão mais necessários com o Tailwind */
-
-        /* Classe de sombra para os cards */
-        .card-shadow {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Oculta o checkbox */
-        #menu-toggle {
-            display: none;
-        }
-
-        /* Melhorias para interatividade e design */
-        .interactive-button {
-            transition: all 0.3s ease;
-        }
-        .interactive-button:hover {
-            transform: scale(1.05);
-        }
-        .interactive-button:active {
-            transform: scale(0.95);
-        }
-        .card-shadow:hover {
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Adicionando classes para o ícone de menu hamburger */
-        #menu-icon-bars span {
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        #menu-toggle:checked + .menu-icon-label #menu-icon-bars #line1 {
-            transform: translateY(8px) rotate(45deg);
-        }
-        #menu-toggle:checked + .menu-icon-label #menu-icon-bars #line2 {
-            opacity: 0;
-        }
-        #menu-toggle:checked + .menu-icon-label #menu-icon-bars #line3 {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-        .hidden {
-            display: none;
-        }
-    </style>
 </head>
 
 <body class="bg-dark-bg text-white font-sans pt-24">
 
-    <header class="fixed top-0 w-full bg-navy-dark border-b border-gray-800 z-50 shadow-lg">
+    <header class="fixed top-0 w-full bg-navy-dark border-b border-gray-800 z-50 shadow-lg ">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            
+
             <div class="text-xl font-bold">
                 <a href="index.html" class="logo-button">
-                    <img src="./img/ChatGPT-Image-5-de-out.-de-2025_-14_01_47 1.png" alt="" class="max-w-full h-auto w-24 sm:w-28 lg:w-32">
+                    <img src="./img/ChatGPT-Image-5-de-out.-de-2025_-14_01_47 1.png" alt=""
+                        class="max-w-full h-auto w-24 sm:w-28 lg:w-32">
                 </a>
             </div>
 
             <input type="checkbox" id="menu-toggle" class="hidden">
-            
+
             <label for="menu-toggle" class="menu-icon-label lg:hidden cursor-pointer p-2 flex justify-end items-center">
                 <div id="menu-icon-bars" class="w-6 h-6 flex flex-col justify-around">
                     <span id="line1" class="block h-0.5 w-full bg-white"></span>
@@ -98,19 +56,30 @@
                 <a href="#inicio" class="interactive-button text-white hover:text-primary-blue">Início</a>
                 <a href="sobre.html" class="interactive-button text-white hover:text-primary-blue">Sobre</a>
                 <a href="cursos.html" class="interactive-button text-white hover:text-primary-blue">Cursos</a>
-                <button class="interactive-button text-white hover:text-primary-blue transition-colors duration-300 active:text-primary-blue p-1">
-                    <i class="fas fa-search h-5 w-5"></i>
-                </button>
-                <input id="search-input" type="text" placeholder="Pesquisar..."
-                    class="hidden bg-gray-900 border border-gray-700 text-white px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-primary-blue" />
+                <div class="relative flex items-center">
+                    <button class="interactive-button text-white hover:text-primary-blue p-1">
+                        <i class="fas fa-search h-5 w-5"></i>
+                    </button>
 
+                    <div class="relative">
+                        <input id="search-input" type="text" autocomplete="off" placeholder="Pesquisar..."
+                            class="hidden bg-gray-900 border border-gray-700 text-white px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-primary-blue" />
+
+                        <div id="search-results"
+                            class="hidden absolute left-0 w-72 bg-gray-900 border border-gray-700 rounded shadow-lg mt-1 max-h-80 overflow-y-auto z-[9999]">
+                        </div>
+                    </div>
+                </div>
             </nav>
         </div>
-        
+
         <div id="mobile-menu" class="absolute top-full left-0 w-full bg-navy-dark pb-4 hidden lg:hidden">
-            <a href="index.html" class="interactive-button block px-4 py-2 hover:bg-gray-800 transition-colors">Início</a>
-            <a href="sobre.html" class="interactive-button block px-4 py-2 hover:bg-gray-800 transition-colors">Sobre</a>
-            <a href="cursos.html" class="interactive-button block px-4 py-2 hover:bg-gray-800 transition-colors">Cursos</a>
+            <a href="index.html"
+                class="interactive-button block px-4 py-2 hover:bg-gray-800 transition-colors">Início</a>
+            <a href="sobre.html"
+                class="interactive-button block px-4 py-2 hover:bg-gray-800 transition-colors">Sobre</a>
+            <a href="cursos.html"
+                class="interactive-button block px-4 py-2 hover:bg-gray-800 transition-colors">Cursos</a>
         </div>
     </header>
 
@@ -120,12 +89,14 @@
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
                     Assista os cursos já, <br class="hidden sm:inline-block"> não perca essa oportunidade!
                 </h1>
-                <a href="cursos.html" class="interactive-button bg-primary-blue text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 active:bg-blue-700 transition duration-300 inline-block">
+                <a href="cursos.html"
+                    class="interactive-button bg-primary-blue text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 active:bg-blue-700 transition duration-300 inline-block">
                     VEJA OS CURSOS
                 </a>
             </div>
             <div class="lg:w-1/2 flex justify-center lg:justify-end">
-                <img src="./img/—Pngtree—happy person using laptop for_14996858 1.png" alt="Homem sentado em poltrona usando notebook" class="max-w-full h-auto lg:max-w-lg">
+                <img src="./img/—Pngtree—happy person using laptop for_14996858 1.png"
+                    alt="Homem sentado em poltrona usando notebook" class="max-w-full h-auto lg:max-w-lg">
             </div>
         </div>
     </section>
@@ -138,17 +109,20 @@
                 <div class="text-left p-6 bg-navy-dark rounded-lg card-shadow">
                     <div class="text-primary-blue text-4xl mb-4">🚀</div>
                     <h3 class="text-xl font-bold mb-2">Explorar novas habilidades.</h3>
-                    <p class="text-text-light text-sm">Acesso a cursos feitos por alunos e para alunos, com foco em design e usabilidade.</p>
+                    <p class="text-text-light text-sm">Acesso a cursos feitos por alunos e para alunos, com foco em
+                        design e usabilidade.</p>
                 </div>
                 <div class="text-left p-6 bg-navy-dark rounded-lg card-shadow">
                     <div class="text-primary-blue text-4xl mb-4">🎯</div>
                     <h3 class="text-xl font-bold mb-2">Adquira qualificações escolares.</h3>
-                    <p class="text-text-light text-sm">Adquira conhecimento para o vestibular, com videoaulas e materiais de apoio criados por estudantes de Desenvolvimento de Sistemas.</p>
+                    <p class="text-text-light text-sm">Adquira conhecimento para o vestibular, com videoaulas e
+                        materiais de apoio criados por estudantes de Desenvolvimento de Sistemas.</p>
                 </div>
                 <div class="text-left p-6 bg-navy-dark rounded-lg card-shadow">
                     <div class="text-primary-blue text-4xl mb-4">⭐</div>
                     <h3 class="text-xl font-bold mb-2">Aprenda com os melhores.</h3>
-                    <p class="text-text-light text-sm">Invista em sua formação e crie o seu novo ciclo com cursos e experiências globalmente relevantes.</p>
+                    <p class="text-text-light text-sm">Invista em sua formação e crie o seu novo ciclo com cursos e
+                        experiências globalmente relevantes.</p>
                 </div>
             </div>
         </div>
@@ -157,35 +131,48 @@
     <section id="cursos" class="py-16 px-4 sm:px-6 lg:px-8 bg-black">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl font-bold mb-12">Para além da escola, para o mercado de trabalho!</h2>
-            <p class="text-gray-400 mb-10">Você terá a chance de aprender conhecimentos úteis não apenas para a escola, mas para o próprio mercado de trabalho</p>
+            <p class="text-gray-400 mb-10">Você terá a chance de aprender conhecimentos úteis não apenas para a escola,
+                mas para o próprio mercado de trabalho</p>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div class="flex items-center p-4 bg-navy-dark rounded-lg card-shadow">
-                    <div class="w-16 h-16 mr-4 bg-gray-800 rounded-full flex items-center justify-center text-3xl text-primary-blue">💻</div>
+                    <div
+                        class="w-16 h-16 mr-4 bg-gray-800 rounded-full flex items-center justify-center text-3xl text-primary-blue">
+                        💻</div>
                     <div>
                         <h3 class="text-xl font-bold mb-1">Programação para todos</h3>
-                        <p class="text-gray-400 text-sm">Conhecimentos introdutórios para esta categoria e você verá como é um mercado crescente.</p>
+                        <p class="text-gray-400 text-sm">Conhecimentos introdutórios para esta categoria e você verá
+                            como é um mercado crescente.</p>
                     </div>
-                </div> 
+                </div>
                 <div class="flex items-center p-4 bg-navy-dark rounded-lg card-shadow">
-                    <div class="w-16 h-16 mr-4 bg-gray-800 rounded-full flex items-center justify-center text-3xl text-primary-blue">🧠</div>
+                    <div
+                        class="w-16 h-16 mr-4 bg-gray-800 rounded-full flex items-center justify-center text-3xl text-primary-blue">
+                        🧠</div>
                     <div>
                         <h3 class="text-xl font-bold mb-1">Uso correto de Inteligência Artificial</h3>
-                        <p class="text-gray-400 text-sm">Saiba como utilizar a IA e como tirar o maior proveito de usar essa tecnologia.</p>
+                        <p class="text-gray-400 text-sm">Saiba como utilizar a IA e como tirar o maior proveito de usar
+                            essa tecnologia.</p>
                     </div>
                 </div>
                 <div class="flex items-center p-4 bg-navy-dark rounded-lg card-shadow">
-                    <div class="w-16 h-16 mr-4 bg-gray-800 rounded-full flex items-center justify-center text-3xl text-primary-blue">🛠️</div>
+                    <div
+                        class="w-16 h-16 mr-4 bg-gray-800 rounded-full flex items-center justify-center text-3xl text-primary-blue">
+                        🛠️</div>
                     <div>
                         <h3 class="text-xl font-bold mb-1">Hardware</h3>
-                        <p class="text-gray-400 text-sm">Aprenda sobre como o Hardware e o Software é de suma importância.</p>
+                        <p class="text-gray-400 text-sm">Aprenda sobre como o Hardware e o Software é de suma
+                            importância.</p>
                     </div>
                 </div>
                 <div class="flex items-center p-4 bg-navy-dark rounded-lg card-shadow">
-                    <div class="w-16 h-16 mr-4 bg-gray-800 rounded-full flex items-center justify-center text-3xl text-primary-blue">🎨</div>
+                    <div
+                        class="w-16 h-16 mr-4 bg-gray-800 rounded-full flex items-center justify-center text-3xl text-primary-blue">
+                        🎨</div>
                     <div>
                         <h3 class="text-xl font-bold mb-1">Conhecimentos em Design UI/UX</h3>
-                        <p class="text-gray-400 text-sm">Uma interface visualmente atrativa, uma boa navegação ou um bom uso do seu produto.</p>
+                        <p class="text-gray-400 text-sm">Uma interface visualmente atrativa, uma boa navegação ou um bom
+                            uso do seu produto.</p>
                     </div>
                 </div>
             </div>
@@ -198,10 +185,12 @@
 
             <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-16">
                 <div class="max-w-xs">
-                    <img src="./img/logosystem 1.png" alt="Logo Sandra Carvalho - Diretora de Ensino Profissional" class="w-full h-auto">
+                    <img src="./img/logosystem 1.png" alt="Logo Sandra Carvalho - Diretora de Ensino Profissional"
+                        class="w-full h-auto">
                 </div>
                 <div class="max-w-[150px]">
-                    <img src="/img/Vector (1).png" alt="Logo de grupo abstrata" class="w-full h-auto" width="30 00" height="200">
+                    <img src="/img/Vector (1).png" alt="Logo de grupo abstrata" class="w-full h-auto" width="30 00"
+                        height="200">
                 </div>
             </div>
         </div>
@@ -217,22 +206,27 @@
                     <li><a href="#cursos" class="text-gray-400 hover:text-white">Cursos</a></li>
                 </ul>
             </div>
-            
+
             <div class="text-center text-gray-400 flex flex-col justify-center">
-                <p class="max-w-sm mx-auto">Todo longo jornada, não importa o quão boa ou é planejada, inicia com um primeiro passo. Aprenda sobre a jornada de todos que fizeram essa caminhada por lazer diversão até apreensão.</p>
+                <p class="max-w-sm mx-auto">Todo longo jornada, não importa o quão boa ou é planejada, inicia com um
+                    primeiro passo. Aprenda sobre a jornada de todos que fizeram essa caminhada por lazer diversão até
+                    apreensão.</p>
             </div>
 
             <div class="md:text-left text-center">
                 <h4 class="text-lg font-bold mb-4">Contato</h4>
                 <ul class="space-y-2">
                     <li class="flex items-center md:justify-start justify-center text-gray-400">
-                        <span class="mr-2 text-primary-blue">📧</span> <a href="mailto:conectandofuturo@gmail.com" class="hover:text-white">conectandofuturo@gmail.com</a>
+                        <span class="mr-2 text-primary-blue">📧</span> <a href="mailto:conectandofuturo@gmail.com"
+                            class="hover:text-white">conectandofuturo@gmail.com</a>
                     </li>
                     <li class="flex items-center md:justify-start justify-center text-gray-400">
-                        <span class="mr-2 text-primary-blue">📷</span> <a href="#" class="hover:text-white">@programasj</a>
+                        <span class="mr-2 text-primary-blue">📷</span> <a href="#"
+                            class="hover:text-white">@programasj</a>
                     </li>
                     <li class="flex items-center md:justify-start justify-center text-gray-400">
-                        <span class="mr-2 text-primary-blue">🔗</span> <a href="#" class="hover:text-white">conectando_futuros</a>
+                        <span class="mr-2 text-primary-blue">🔗</span> <a href="#"
+                            class="hover:text-white">conectando_futuros</a>
                     </li>
                 </ul>
             </div>
@@ -242,68 +236,7 @@
             © 2025 Conectando Futuros - Desenvolvido pelos alunos do curso de Desenvolvimento de Sistemas
         </div>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            // Função para alternar a visibilidade do menu
-            menuToggle.addEventListener('change', () => {
-                if (menuToggle.checked) {
-                    mobileMenu.classList.remove('hidden');
-                    mobileMenu.classList.add('flex', 'flex-col'); // Adiciona flex para display vertical
-                } else {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('flex', 'flex-col');
-                }
-            });
-
-            // Fechar menu ao clicar em um link
-            const mobileLinks = mobileMenu.querySelectorAll('a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth < 1024) { // 1024px é o breakpoint 'lg' do Tailwind
-                        menuToggle.checked = false;
-                        mobileMenu.classList.add('hidden');
-                        mobileMenu.classList.remove('flex', 'flex-col');
-                    }
-                });
-            });
-        });
-        document.addEventListener('DOMContentLoaded', () => {
-                const searchButton = document.querySelector('#navbar-menu button');
-                const navLinks = document.querySelectorAll('#navbar-menu a');
-                const searchInput = document.getElementById('search-input');
-
-                let searchOpen = false;
-
-                searchButton.addEventListener('click', () => {
-                    searchOpen = !searchOpen;
-
-                    if (searchOpen) {
-                        // Esconde tudo
-                        navLinks.forEach(link => link.classList.add('hidden'));
-                        // Mostra barra de pesquisa
-                        searchInput.classList.remove('hidden');
-                        // Focar automático
-                        searchInput.focus();
-                    } else {
-                        // Volta ao normal
-                        navLinks.forEach(link => link.classList.remove('hidden'));
-                        searchInput.classList.add('hidden');
-                        searchInput.value = "";
-                    }
-                });
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && searchOpen) {
-                        searchOpen = false;
-                        navLinks.forEach(link => link.classList.remove('hidden'));
-                        searchInput.classList.add('hidden');
-                        searchInput.value = "";
-                    }
-                });
-            });
-    </script>
 </body>
+<script src="js/coursesData.js"></script>
+<script src="js/navbar.js"></script>
 </html>

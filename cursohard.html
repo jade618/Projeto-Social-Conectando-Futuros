@@ -6,6 +6,7 @@
     <title>Hardware - Conectando Futuros</title>
     <link rel="icon" href="./img/ChatGPT-Image-5-de-out.-de-2025_-14_01_47 1.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/curso.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
@@ -28,49 +29,11 @@
             }
         }
     </script>
-
     <style>
-        /* Oculta o checkbox */
-        #menu-toggle {
-            display: none;
-        }
-
-        /* Animação do ícone hamburger */
-        #menu-icon-bars span {
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        #menu-toggle:checked + .menu-icon-label #menu-icon-bars #line1 {
-            transform: translateY(8px) rotate(45deg);
-        }
-        #menu-toggle:checked + .menu-icon-label #menu-icon-bars #line2 {
-            opacity: 0;
-        }
-        #menu-toggle:checked + .menu-icon-label #menu-icon-bars #line3 {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-
-        /* Estilo para a seção hero com imagem de fundo e overlay */
-        .hero-bg-overlay {
+              .hero-bg-overlay {
             background-image: url('./img/hard.png');
             background-size: cover;
             background-position: center;
-        }
-        /* Overlay azul escuro para dar contraste e fidelidade à imagem */
-        .hero-bg-overlay::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7); /* Overlay escuro */
-            z-index: 10;
-        }
-        
-        /* Ajuste do Footer para centralização do texto */
-        .footer-text-column {
-             max-width: 400px;
-             text-align: center;
         }
     </style>
 </head>
@@ -99,9 +62,20 @@
                 <a href="index.html" class="text-white hover:text-primary-blue transition-colors duration-300">Início</a>
                 <a href="sobre.html" class="text-white hover:text-primary-blue transition-colors duration-300">Sobre</a>
                 <a href="cursos.html" class="text-white hover:text-primary-blue transition-colors duration-300">Cursos</a>
-                <button class="text-white hover:text-primary-blue transition-colors duration-300 p-1">
-                    <i class="fas fa-search h-5 w-5"></i>
-                </button>
+                <div class="relative flex items-center">
+                    <button class="interactive-button text-white hover:text-primary-blue p-1">
+                        <i class="fas fa-search h-5 w-5"></i>
+                    </button>
+                
+                    <div class="relative">
+                        <input id="search-input" type="text" autocomplete="off" placeholder="Pesquisar..."
+                            class="hidden bg-gray-900 border border-gray-700 text-white px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-primary-blue" />
+                
+                        <div id="search-results"
+                            class="hidden absolute left-0 w-72 bg-gray-900 border border-gray-700 rounded shadow-lg mt-1 max-h-80 overflow-y-auto z-[9999]">
+                        </div>
+                    </div>
+                </div>
             </nav>
         </div>
         
@@ -225,36 +199,8 @@ Resolver problemas básicos e otimizar o funcionamento do seu PC <li class="flex
             <p class="text-xs text-gray-500">© 2025 Conectando Futuros - Desenvolvido pelos alunos do curso de Desenvolvimento de Sistemas</p>
         </div>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            // Função para alternar a visibilidade do menu
-            menuToggle.addEventListener('change', () => {
-                if (menuToggle.checked) {
-                    mobileMenu.classList.remove('hidden');
-                    mobileMenu.classList.add('flex', 'flex-col');
-                } else {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('flex', 'flex-col');
-                }
-            });
-
-            // Fechar menu ao clicar em um link
-            const mobileLinks = mobileMenu.querySelectorAll('a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth < 1024) { 
-                        menuToggle.checked = false;
-                        mobileMenu.classList.add('hidden');
-                        mobileMenu.classList.remove('flex', 'flex-col');
-                    }
-                });
-            });
-        });
-    </script>
-
 </body>
+<script src="js/coursesData.js"></script>
+<script src="js/curso.js"></script>
+<script src="js/navbar.js"></script>
 </html>

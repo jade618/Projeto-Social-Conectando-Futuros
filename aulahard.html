@@ -6,6 +6,7 @@
     <title>Conectando Futuros - Desvendando a Inteligência Artificial</title>
     <link rel="icon" href="./img/ChatGPT-Image-5-de-out.-de-2025_-14_01_47 1.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/aula.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -26,61 +27,7 @@
                 }
             }
         }
-
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            menuToggle.addEventListener('change', function() {
-                if (menuToggle.checked) {
-                    mobileMenu.classList.remove('hidden');
-                } else {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
     </script>
-
-    <style>
-        /* Oculta o checkbox */
-        #menu-toggle {
-            display: none;
-        }
-
-        /* Animação do ícone hamburger */
-        #menu-icon-bars span {
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        #menu-toggle:checked + .menu-icon-label #menu-icon-bars #line1 {
-            transform: translateY(8px) rotate(45deg);
-        }
-        #menu-toggle:checked + .menu-icon-label #menu-icon-bars #line2 {
-            opacity: 0;
-        }
-        #menu-toggle:checked + .menu-icon-label #menu-icon-bars #line3 {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-
-        /* Classe de sombra para os cards */
-        .card-shadow {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Melhorias para interatividade e design */
-        .interactive-button {
-            transition: all 0.3s ease;
-        }
-        .interactive-button:hover {
-            transform: scale(1.05);
-        }
-        .interactive-button:active {
-            transform: scale(0.95);
-        }
-        .card-shadow:hover {
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
-        }
-    </style>
 </head>
 
 <body class="bg-dark-bg text-white font-sans pt-20 lg:pt-24">
@@ -108,9 +55,20 @@
                 <a href="index.html" class="interactive-button text-white hover:text-primary-blue">Início</a>
                 <a href="sobre.html" class="interactive-button text-white hover:text-primary-blue">Sobre</a>
                 <a href="cursos.html" class="interactive-button text-white hover:text-primary-blue">Cursos</a>
-                <button class="interactive-button text-white hover:text-primary-blue transition-colors duration-300 active:text-primary-blue p-1">
-                    <i class="fas fa-search h-5 w-5"></i>
-                </button>
+                 <div class="relative flex items-center">
+                    <button class="interactive-button text-white hover:text-primary-blue p-1">
+                        <i class="fas fa-search h-5 w-5"></i>
+                    </button>
+
+                    <div class="relative">
+                        <input id="search-input" type="text" autocomplete="off" placeholder="Pesquisar..."
+                            class="hidden bg-gray-900 border border-gray-700 text-white px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-primary-blue" />
+
+                        <div id="search-results"
+                            class="hidden absolute left-0 w-72 bg-gray-900 border border-gray-700 rounded shadow-lg mt-1 max-h-80 overflow-y-auto z-[9999]">
+                        </div>
+                    </div>
+                </div>
             </nav>
         </div>
 
@@ -237,4 +195,7 @@
     </footer>
 
 </body>
+<script src="js/coursesData.js"></script>
+<script src="js/aula.js"></script>
+<script src="js/navbar.js"></script>
 </html>

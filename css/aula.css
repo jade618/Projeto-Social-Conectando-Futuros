@@ -1,0 +1,37 @@
+  /* Oculta o checkbox */
+        #menu-toggle {
+            display: none;
+        }
+
+        /* Animação do ícone hamburger */
+        #menu-icon-bars span {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        #menu-toggle:checked + .menu-icon-label #menu-icon-bars #line1 {
+            transform: translateY(8px) rotate(45deg);
+        }
+        #menu-toggle:checked + .menu-icon-label #menu-icon-bars #line2 {
+            opacity: 0;
+        }
+        #menu-toggle:checked + .menu-icon-label #menu-icon-bars #line3 {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Classe de sombra para os cards */
+        .card-shadow {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Melhorias para interatividade e design */
+        .interactive-button {
+            transition: all 0.3s ease;
+        }
+        .interactive-button:hover {
+            transform: scale(1.05);
+        }
+        .interactive-button:active {
+            transform: scale(0.95);
+        }
+        .card-shadow:hover {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+        }

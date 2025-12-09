@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conectando Futuros</title>
     <link rel="icon" href="./img/ChatGPT-Image-5-de-out.-de-2025_-14_01_47 1.png">
+    <link rel="stylesheet" href="css/sobre.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
@@ -23,320 +26,6 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Reset Básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #0d1117; /* Fundo escuro */
-    color: #ffffff;
-    line-height: 1.6;
-}
-
-/* Container de Conteúdo (para centralizar e limitar a largura) */
-.content-container {
-    max-width: 1200px; /* Largura aproximada do conteúdo na imagem */
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* --- Cabeçalho (Navbar) --- */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background-color: #0d1117; 
-    position: fixed; /* Simula o cabeçalho fixo */
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 1.2em;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: #007bff; /* Cor azul claro para o logo, simulando o tom */
-}
-
-.nav-links a {
-    color: #ffffff;
-    text-decoration: none;
-    margin-left: 30px;
-    font-size: 1em;
-    font-weight: 400;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #007bff;
-}
-
-.search-icon i {
-    font-size: 1.2em;
-    cursor: pointer;
-}
-
-/* --- Seção Hero (Imagem de Fundo) --- */
-.hero-section {
-    position: relative;
-    height: 40vh; /* Altura reduzida para evitar sobreposição */
-    min-height: 250px;
-    background: url('caminho/para/sua/imagem.jpg') center center/contain no-repeat;
-    /* Substitua 'caminho/para/sua/imagem.jpg' pela URL real da imagem. */
-    /* Para o propósito deste código, usaremos uma cor de fundo ou um placeholder */
-    background-image: url('data:image/jpeg;base64,...'); /* Usaria a URL da imagem real */
-    background-color: #1a1e22; /* Placeholder */
-    display: flex;
-    align-items: flex-end; /* Conteúdo na parte inferior */
-}
-
-/* Overlay escuro para dar contraste ao texto (simula a sobreposição escura) */
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Overlay preto semi-transparente */
-    z-index: 1;
-}
-
-
-/* --- Seção Sobre o Projeto --- */
-.about-section {
-    background-color: #0d1117;
-    padding: 60px 0;
-}
-
-.about-section .content-container {
-    padding-top: 20px;
-}
-
-.section-title {
-    font-size: 2.2em;
-    font-weight: 700;
-    margin-bottom: 30px;
-    padding-bottom: 5px;
-    position: relative;
-    /* Alinhamento à esquerda conforme a imagem */
-}
-
-.description-text {
-    max-width: 950px; /* Limita a largura do parágrafo */
-    font-size: 1em;
-    font-weight: 300;
-    line-height: 1.8;
-    color: #c9d1d9;
-    text-align: justify; /* Justificado como na imagem */
-}
-
-.description-text strong {
-    font-weight: 600;
-    color: #ffffff;
-}
-
-/* --- Seção de Cards --- */
-.cards-section {
-    padding: 60px 0 80px 0;
-    background-color: #0d1117;
-}
-
-.sub-title {
-    font-size: 1.8em;
-    font-weight: 600;
-    margin-bottom: 40px;
-    text-align: left;
-}
-
-.cards-grid {
-    display: flex;
-    gap: 40px;
-    justify-content: space-between;
-    margin-top: 40px;
-}
-
-.card {
-    flex: 1;
-    max-width: calc(33.333% - 27px); /* 3 colunas com espaço */
-    padding: 0;
-    text-align: left; /* Alinhamento dos textos dos cards */
-}
-
-.icon-circle {
-    width: 60px;
-    height: 60px;
-    border: 2px solid #007bff;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
-    font-size: 1.5em;
-    color: #007bff;
-}
-
-.star-icon {
-    /* O ícone da estrela na imagem é preenchido/sólido */
-    background-color: #007bff;
-    color: #ffffff;
-}
-
-.card h3 {
-    font-size: 1.2em;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.card p {
-    font-size: 0.9em;
-    font-weight: 300;
-    color: #c9d1d9;
-    line-height: 1.5;
-}
-
-/* --- Rodapé (Footer) --- */
-footer {
-    background-color: #000000;
-    padding: 40px 0 0 0;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px 30px 40px;
-}
-
-.footer-column {
-    flex: 1;
-    padding: 0 20px;
-    min-width: 200px; /* Para garantir que as colunas não fiquem muito apertadas */
-}
-
-.footer-column h4 {
-    font-size: 1.1em;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #ffffff;
-}
-
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-column ul li {
-    margin-bottom: 8px;
-}
-
-.footer-column a, .footer-column p, .footer-column ul li {
-    color: #c9d1d9;
-    text-decoration: none;
-    font-size: 0.9em;
-    font-weight: 300;
-}
-
-.footer-column ul li i {
-    margin-right: 10px;
-    color: #007bff; /* Ícones em cor de destaque */
-}
-
-.text-center {
-    text-align: center;
-    max-width: 400px; /* Simula o alinhamento da coluna central */
-    flex: 1.5; /* Dá mais espaço à coluna de texto central */
-    align-self: center; /* Centraliza verticalmente o texto */
-}
-
-.text-center p {
-    line-height: 1.7;
-}
-
-.copyright {
-    background-color: #000000; 
-    padding: 20px 0;
-    border-top: 1px solid #1a1e22;
-    text-align: center;
-}
-
-.copyright p {
-    font-size: 0.8em;
-    color: #c9d1d9;
-    font-weight: 300;
-}
-
-/* --- Responsividade (Ajustes para telas menores) --- */
-@media (max-width: 1024px) {
-    .nav-links a {
-        margin-left: 20px;
-    }
-
-    .cards-grid {
-        gap: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        padding: 15px 20px;
-    }
-
-    .nav-links {
-        display: none; /* Poderia ser um menu hamburger em um projeto real */
-    }
-
-    .logo {
-        font-size: 1.1em;
-    }
-    
-    .section-title {
-        font-size: 1.8em;
-    }
-
-    .cards-grid {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .card {
-        max-width: 100%;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        padding: 0 20px 30px 20px;
-    }
-
-    .footer-column {
-        padding: 20px 0;
-        text-align: center;
-        width: 100%;
-    }
-    
-    .text-center {
-        order: -1; /* Move o texto grande para cima, se for o caso */
-        margin-bottom: 20px;
-    }
-
-    .footer-column ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-}
-    </style>
 </head>
 <body class="bg-dark-bg text-white font-sans pt-16 lg:pt-20"> 
     
@@ -344,7 +33,7 @@ footer {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             
             <div class="text-xl font-bold text-primary-blue">
-                                <img src="./img/ChatGPT-Image-5-de-out.-de-2025_-14_01_47 1.png" alt="" class="max-w-full h-auto w-24 sm:w-28 lg:w-32">
+                <img src="./img/ChatGPT-Image-5-de-out.-de-2025_-14_01_47 1.png" alt="" class="max-w-full h-auto w-24 sm:w-28 lg:w-32">
 
             </div>
 
@@ -361,7 +50,20 @@ footer {
                 <a href="index.html" class="text-white hover:text-primary-blue transition-colors duration-300">Início</a>
                 <a href="sobre.html" class="text-white hover:text-primary-blue transition-colors duration-300">Sobre</a>
                 <a href="cursos.html" class="text-white hover:text-primary-blue transition-colors duration-300">Cursos</a>
-                <button class="text-white hover:text-primary-blue transition-colors duration-300 p-1"><i class="fas fa-search h-5 w-5"></i></button>
+                <div class="relative flex items-center">
+                    <button class="interactive-button text-white hover:text-primary-blue p-1">
+                        <i class="fas fa-search h-5 w-5"></i>
+                    </button>
+
+                    <div class="relative">
+                        <input id="search-input" type="text" autocomplete="off" placeholder="Pesquisar..."
+                            class="hidden bg-gray-900 border border-gray-700 text-white px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-primary-blue" />
+
+                        <div id="search-results"
+                            class="hidden absolute left-0 w-72 bg-gray-900 border border-gray-700 rounded shadow-lg mt-1 max-h-80 overflow-y-auto z-[9999]">
+                        </div>
+                    </div>
+                </div>
             </nav>
         </div>
         
@@ -517,4 +219,6 @@ footer {
         });
     </script>
 </body>
+<script src="js/coursesData.js"></script>
+<script src="js/navbar.js"></script>
 </html>
